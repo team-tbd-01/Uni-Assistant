@@ -1,18 +1,18 @@
 {
   "development": {
     "username": "postgres",
-    "password": "Kovalski123",
-    "database": "app2019_development",
-    "host": "127.0.0.1",
-    "port": "5433",
+    "password": "drifter24",
+    "database": "uni-assistant-3",
+    "host": "localhost",
+    "port": "5432",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "Kovalski123",
-    "database": "app2019_test",
-    "host": "127.0.0.1",
-    "port":"5433",
+    "password": "drifter24",
+    "database": "uni-assistant-3",
+    "host": "localhost",
+    "port": "5432",
     "dialect": "postgres"
   },
   "production": {

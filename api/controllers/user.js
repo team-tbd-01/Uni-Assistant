@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const { Post } = db;
+const { User } = db;
 
 // This is a simple example for providing basic CRUD routes for
 // a resource/model. It provides the following:
@@ -17,17 +17,23 @@ const { Post } = db;
 
 
 router.get('/', (req,res) => {
-  Post.findAll({})
-    .then(posts => res.json(posts));
+  User.findAll({})
+    .then(users => res.json(users));
 });
 
-
+// TODO: When creating a user, make sure passwords get hashed.
 router.post('/', (req, res) => {
-  let { content } = req.body;
+  let content = req.body;
   
-  Post.create({ content })
-    .then(post => {
-      res.status(201).json(post);
+  User.create({
+    username: content.username,
+    password: content.password,
+    email: content.email,
+    first_name: content.first_name,
+    last_name: content.last_name
+   })
+    .then(user => {
+      res.status(201).json(user);
     })
     .catch(err => {
       res.status(400).json(err);
@@ -37,29 +43,32 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  Post.findByPk(id)
-    .then(post => {
-      if(!post) {
+  User.findByPk(id)
+    .then(user => {
+      if(!user) {
         return res.sendStatus(404);
       }
 
-      res.json(post);
+      res.json(user);
     });
 });
 
-
+// TODO: Make updating a user more secure, especially if they want to update a password
 router.put('/:id', (req, res) => {
   const { id } = req.params;
-  Post.findByPk(id)
-    .then(post => {
-      if(!post) {
+  User.findByPk(id)
+    .then(user => {
+      if(!user) {
         return res.sendStatus(404);
       }
 
-      post.content = req.body.content;
-      post.save()
-        .then(post => {
-          res.json(post);
+      user.update({
+        username: req.body.username
+      })
+
+      user.save()
+        .then(user => {
+          res.json(user);
         })
         .catch(err => {
           res.status(400).json(err);
@@ -70,14 +79,17 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
-  Post.findByPk(id)
-    .then(post => {
-      if(!post) {
+  User.findByPk(id)
+    .then(user => {
+      if(!user) {
         return res.sendStatus(404);
       }
 
-      post.destroy();
-      res.sendStatus(204);
+      user.destroy();
+      res.status(204)
+      .json({
+        message: "Successfully deleted user with id" + id
+      })
     });
 });
 
