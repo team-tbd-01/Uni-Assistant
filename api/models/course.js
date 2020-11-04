@@ -26,7 +26,9 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Course.associate = (models) => {
-    // associations can be defined here
+    models.Course.hasMany(models.Post);
+    models.Course.belongsTo(models.Comment);
+    models.Course.belongsTo(models.Description);
   };
 
   return Course;
