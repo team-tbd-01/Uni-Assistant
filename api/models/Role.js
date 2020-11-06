@@ -6,13 +6,13 @@ module.exports = (sequelize, DataTypes) => {
 
   Role.init({
     role_id: {
-      type: DataTypes.Integer,
+      type: DataTypes.INTEGER,
       primaryKey: true
     },
   },
   {
     sequelize,
-    modelName: 'roleuser'
+    modelName: 'role'
   });
 
   Role.associate = (models) => {

@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
     models.User.hasMany(models.Commentlike);
     models.User.hasMany(models.Comment);
     models.User.belongsTo(models.Description);
-    models.User.belongsTo(model.Roleuser);
+    models.User.belongsTo(models.Roleuser);
   };
 
   return User;

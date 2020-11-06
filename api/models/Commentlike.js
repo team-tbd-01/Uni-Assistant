@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Commentlike.init({
     like_id: {
-      type: DataTypes.Integer,
+      type: DataTypes.INTEGER,
       primaryKey: true
     },
   },

@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
 
   Course.associate = (models) => {
     models.Course.hasMany(models.Post);
-    models.Course.belongsTo(models.Comment);
     models.Course.belongsTo(models.Description);
   };
 
