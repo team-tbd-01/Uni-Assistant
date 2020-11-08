@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   Roleuser.init({
     roleuser_id: {
       type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      allowNull: false
     },
   },
   {

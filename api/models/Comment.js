@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   Comment.init({
     content: {
       type: DataTypes.TEXT,
+      allowNull: false,
       validate: {
         notEmpty: true,
       }

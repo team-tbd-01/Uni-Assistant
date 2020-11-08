@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Description.init({
     content: {
       type: DataTypes.TEXT,
+      allowNull: false,
       validate: {
         len: [3, 255],
         notEmpty: true

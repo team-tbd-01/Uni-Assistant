@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Department.init({
     departmentname: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         len: [3, 255],
         notEmpty: true,
