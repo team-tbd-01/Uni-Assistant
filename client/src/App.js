@@ -10,14 +10,21 @@ import PostsListPage from './pages/PostsListPage';
 import PostFormPage from './pages/PostFormPage';
 import ShowPostPage from './pages/ShowPostPage';
 import AboutUsPage from './pages/AboutUsPage';
+import MyNewPage from './pages/MyNewPage';
 
 import './App.css';
 
+//This function is to allow the name of the college to change dynamically. Will need to create
+//another function that will check what school the user is from and will put the schools name.
+//For now just leave this is as, it's not really doing anything important besides maybe confusing you lol.
+function ForumName(props){
+  return <Link className="navbar-brand" to="/"> {props.name} Forum</Link>;
+}
 
 function Navigation(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
-      <Link className="navbar-brand" to="/">Micro Blog</Link>
+      <ForumName name = "CUNY" />
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
           <NavLink className="nav-link" exact to="/posts/new">
@@ -27,6 +34,16 @@ function Navigation(props) {
         <li className="nav-item">
           <NavLink className="nav-link" exact to="/about-us">
             About Us
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="nav-link" exact to="/newpage">
+            My New Page
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="nav-link" exact to="/show">
+            Show Posts
           </NavLink>
         </li>
       </ul>
@@ -43,6 +60,7 @@ class App extends React.Component {
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
+                <Route path="/newpage" component={MyNewPage}></Route>
                 <Route path="/posts/new" component={PostFormPage} />
                 <Route path="/posts/:id" component={ShowPostPage} />
                 <Route path="/about-us" component={AboutUsPage} />
