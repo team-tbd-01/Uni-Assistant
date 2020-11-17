@@ -12,6 +12,7 @@ const appConfigController = require('./appConfig.js');
 const descriptionController = require('./description.js');
 const commetController = require('./comment.js');
 const commetlikeController = require('./commentlike.js');
+const authController = require('./auth')
 
 // Mount each controller under a specific route. These
 // will be prefixes to all routes defined inside the controller
@@ -24,6 +25,7 @@ router.use('/posts', postController);
 router.use('/descriptions', descriptionController);
 router.use('/comments', commetController);
 router.use('/commentslikes', commetlikeController);
+router.use('/auth', authController);
 
 
 module.exports = router;
