@@ -1,5 +1,6 @@
 import React from 'react';
 import Course from '../components/Course';
+import Post from '../components/Post';
 
 function CoursesPage(props) {
     return(
