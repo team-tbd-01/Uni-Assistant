@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import CoursesPage from './pages/CoursesPage';
 import AboutUsPage from './pages/AboutUsPage';
+import AddCoursePage from './pages/AddCoursePage';
 
 import './App.css';
 
@@ -43,6 +44,7 @@ class App extends React.Component {
             <div className="row justify-content-center">
               <Switch>
                 <Route path="/courses" component={CoursesPage} />
+                <Route path="/new-course" component={AddCoursePage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/" />
               </Switch>
