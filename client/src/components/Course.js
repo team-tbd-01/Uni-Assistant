@@ -2,8 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function Course(props) {
-    // card w-75 mx-auto - outer div bootstrap
-    // card-header - next div bootstrap
+    
     return(
         <div className="courseCard col-10 col-md-8 col-lg-7 mx-auto">
             <div className="card mb-4 shadow">

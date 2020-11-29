@@ -7,10 +7,7 @@ class ACoursePage extends React.Component {
         courseName: this.props.location.state.courseName
     }
     componentDidMount () {
-        // fetch(`https://api.twitter.com/user/${handle}`)
-        // .then((user) => {
-        //     this.setState(() => ({ user }))
-        // })
+        
     }
     render() {
         return(

@@ -1,9 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function Course(props) {
-    // card w-75 mx-auto - outer div bootstrap
-    // card-header - next div bootstrap
+function Question(props) {
     return(
         <div className="courseQuestion col-10 col-md-8 col-lg-7 mx-auto">
             <div className="card mb-4 shadow">
@@ -12,9 +10,9 @@ function Course(props) {
                 </div>
                 <div className="card-footer small text-muted">
                     <Link to={{
-                        pathname: "/a-course",
+                        pathname: "/a-question",
                         state: {
-                            courseName: props.courseName
+                            question: props.question
                         }
                     }} className="btn btn-primary mx-auto">View Question</Link>
                 </div>
@@ -23,4 +21,4 @@ function Course(props) {
     );
 }
 
-export default Course;
+export default Question;

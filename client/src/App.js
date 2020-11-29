@@ -10,8 +10,8 @@ import CoursesPage from './pages/CoursesPage';
 import AboutUsPage from './pages/AboutUsPage';
 import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
+import AQuestionPage from './pages/AQuestionPage'
 import AskQuestionPage from './pages/AskQuestionPage'
-
 import './App.css';
 
 
@@ -49,6 +49,7 @@ class App extends React.Component {
                 <Route path="/new-course" component={AddCoursePage} />
                 <Route path="/new-question" component={AskQuestionPage} />
                 <Route path="/a-course" component={ACoursePage} />
+                <Route path="/a-question" component={AQuestionPage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/" />
               </Switch>
