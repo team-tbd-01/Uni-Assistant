@@ -1,6 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import auth from '../services/auth';
+import '../App.css';
+import avatar from '../img_avatar2.png';
+
 
 class LoginPage extends React.Component {
   state = {
@@ -43,29 +46,42 @@ class LoginPage extends React.Component {
     }
 
     return (
-      <form onSubmit={this.login}>
-        <div className="form-row">
-          { err }
-          <input 
-            type="email"
-            className="form-control"
-            name="email"
-            placeholder="Email" 
-            value={this.state.email} 
-            onChange={this.fieldChanged('email')} />
-          <input 
-            type="password"
-            className="form-control"
-            name="password"
-            placeholder="Password" 
-            value={this.state.password} 
-            onChange={this.fieldChanged('password')} />
-          <button 
-            type="submit"
-            className="btn btn-primary ml-auto"
-          >Login</button>
-        </div>
-      </form>
+          <div className="card cardsize">
+              <div className="card-header header">Log in</div>
+                <div className="card-body">
+                    <div className="imgcontainer">
+                        <img src={avatar} alt="Avatar" className="avatar"/>
+                    </div>
+                        <form onSubmit={this.login}>
+                            { err }
+                            <div class="container">
+                                <div className="margin">
+                                    <lable for='email' className="margin"><b>E-mail</b></lable>
+                                    <input 
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email" 
+                                        value={this.state.email} 
+                                        onChange={this.fieldChanged('email')} />
+                                </div>
+                                <div className="margin">
+                                    <lable for='password' className="margin"><b>Password</b></lable>
+                                    <input 
+                                        type="password"
+                                        name="password"
+                                        placeholder="Password" 
+                                        value={this.state.password} 
+                                        onChange={this.fieldChanged('password')} />
+                                    </div>
+                                </div>
+                            <div className="login container">
+                            <button 
+                                type="submit"
+                            >Log in</button>
+                            </div>
+                        </form>
+                </div>
+          </div>
     );
   }
 }
