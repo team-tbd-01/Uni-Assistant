@@ -27,10 +27,10 @@ router.post('/', (req, res) => {
   let content = req.body;
   
   Course.create({
-    name: req.body.coursename,
-    course_code: req.body.coursecode,
-    departmentId: req.body.departmentid,
-    schoolId: req.body.schoolid
+    name: req.body.name,
+    course_code: req.body.code,
+    // departmentId: req.body.departmentid,
+    // schoolId: req.body.schoolid
    })
     .then(user => {
       res.status(201).json(user);

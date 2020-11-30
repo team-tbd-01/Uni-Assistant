@@ -11,7 +11,7 @@ import AboutUsPage from './pages/AboutUsPage';
 import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
 import AskQuestionPage from './pages/AskQuestionPage'
-import MyNewPage from './pages/MyNewPage';
+import LandingPage from './pages/LandingPage';
 
 import './App.css';
 
@@ -56,7 +56,7 @@ class App extends React.Component {
                 <Route path="/new-question" component={AskQuestionPage} />
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/about-us" component={AboutUsPage} />
-                <Route path="/" />
+                <Route path="/" exact />
               </Switch>
             </div>
           </div>

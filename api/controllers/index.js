@@ -18,7 +18,7 @@ const commetlikeController = require('./commentlike.js');
 router.use('/users', userController);
 router.use('/schools', schoolController);
 router.use('/departments', departmentController);
-router.use('/courses', courseController);
+router.use('/course', courseController);
 router.use('/application-configuration', appConfigController);
 router.use('/posts', postController);
 router.use('/descriptions', descriptionController);
