@@ -4,11 +4,16 @@ const morgan = require('morgan');
 const path = require('path');
 const db = require('./models');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 8000;
 
 
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json())
+
+// This lets us bypass cors
+
+app.use(cors())
 
 // add http request logging to help us debug and audit app use
 const logFormat = process.env.NODE_ENV==='production' ? 'combined' : 'dev';
