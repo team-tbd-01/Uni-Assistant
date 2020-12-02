@@ -12,10 +12,7 @@ import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
 import AQuestionPage from './pages/AQuestionPage'
 import AskQuestionPage from './pages/AskQuestionPage'
-<<<<<<< HEAD
-=======
 /*import LandingPage from './pages/LandingPage';*/
->>>>>>> bd8f2c921912f8f4bee9bcfecb2c214ae3d4b473
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
