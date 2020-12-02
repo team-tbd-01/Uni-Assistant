@@ -80,10 +80,15 @@ import {Link} from 'react-router-dom';
             </form>
         );
     }
+<<<<<<< HEAD
   }
   */
 
 class AddCoursePage extends React.Component {
+=======
+*/
+class AboutUsPage extends React.Component {
+>>>>>>> bd8f2c921912f8f4bee9bcfecb2c214ae3d4b473
 
   state = {
     course_name: '',
@@ -227,4 +232,4 @@ class AddCoursePage extends React.Component {
   }
 }
 
-export default AddCoursePage;
+export default AboutUsPage;

@@ -12,8 +12,13 @@ import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
 import AQuestionPage from './pages/AQuestionPage'
 import AskQuestionPage from './pages/AskQuestionPage'
+<<<<<<< HEAD
+=======
+/*import LandingPage from './pages/LandingPage';*/
+>>>>>>> bd8f2c921912f8f4bee9bcfecb2c214ae3d4b473
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
+import Signup from './pages/Signup';
 import './App.css';
 import './css/login.css';
 
@@ -61,8 +66,6 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
-          <div className="container-fluid text-center">
-            <div className="row justify-content-center">
               <Switch>
                 <Route path="/login" component={LoginPage} />
                 <Route path="/courses" component={CoursesPage} />
@@ -71,10 +74,9 @@ class App extends React.Component {
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/a-question" component={AQuestionPage} />
                 <Route path="/about-us" component={AboutUsPage} />
-                <Route path="/" exact />
-              </Switch>
-            </div>
-          </div>
+                <Route path="/Signup" component={Signup}/>
+                <Route path="/" />
+              </Switch> 
         </Router>
     );
   }

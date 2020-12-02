@@ -46,6 +46,28 @@ const auth = {
           this.isAuthenticated = false;
           return body;
         });
+    },
+    signup(email,username,password,first_name,last_name) {
+      return fetch('/api/auth/signup', { 
+        method: 'POST',
+        body: JSON.stringify({ email, username, password, first_name, last_name }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then((response) => {
+          if(!response.ok) {
+            console.log(response)
+            throw new Error('Sign up Failed');
+          }
+  
+          return response.json();
+        })
+        .then((body) => {
+          console.log(body)
+          this.isAuthenticated = true;
+          return body;
+        });
     }
   }
   
