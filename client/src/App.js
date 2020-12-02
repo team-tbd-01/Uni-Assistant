@@ -15,6 +15,7 @@ import AskQuestionPage from './pages/AskQuestionPage'
 import LandingPage from './pages/LandingPage';
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
+import Signup from './pages/Signup';
 import './App.css';
 
 //This function is to allow the name of the college to change dynamically. Will need to create
@@ -61,8 +62,6 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
-          <div className="container-fluid text-center">
-            <div className="row justify-content-center">
               <Switch>
                 <Route path="/login" component={LoginPage} />
                 <Route path="/courses" component={CoursesPage} />
@@ -71,6 +70,9 @@ class App extends React.Component {
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/a-question" component={AQuestionPage} />
                 <Route path="/about-us" component={AboutUsPage} />
+                <Route path="/Signup" component={Signup}/>
+                <Route path="/" />
+              </Switch> 
                 <Route path="/" exact />
               </Switch>
             </div>
