@@ -49,7 +49,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-
 router.put('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   School.findByPk(id)
@@ -69,7 +68,6 @@ router.put('/:id',passport.isAuthenticated(), (req, res) => {
         });
     });
 });
-
 
 router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;

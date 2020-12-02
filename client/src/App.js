@@ -12,6 +12,7 @@ import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
 import AQuestionPage from './pages/AQuestionPage'
 import AskQuestionPage from './pages/AskQuestionPage'
+import LandingPage from './pages/LandingPage';
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
 import './App.css';
@@ -26,14 +27,13 @@ function ForumName(props){
 function Navigation(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
-      <Link className="navbar-brand" to="/">Uni-Assistant</Link>
+      <ForumName name = "CUNY" />
       <ul className="navbar-nav mr-auto">
       <li className="nav-item">
           <NavLink className="nav-link" exact to="/courses">
             Courses
           </NavLink>
         </li>
-
         <li className="nav-item">
           <NavLink className="nav-link" exact to="/about-us">
             About Us
@@ -71,7 +71,7 @@ class App extends React.Component {
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/a-question" component={AQuestionPage} />
                 <Route path="/about-us" component={AboutUsPage} />
-                <Route path="/" />
+                <Route path="/" exact />
               </Switch>
             </div>
           </div>
