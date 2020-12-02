@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Course.init({
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         len: [0, 255],
         notEmpty: true,
@@ -15,9 +16,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     course_code: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         len: [0, 10],
         notEmpty: true,
+        allowNull: false,
       }
     },
   }, {

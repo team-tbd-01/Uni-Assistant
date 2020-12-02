@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const passport = require('../middlewares/authentication');
-const { Department } = db;
+const { Role } = db;
 
 // This is a simple example for providing basic CRUD routes for
 // a resource/model. It provides the following:
@@ -18,20 +17,19 @@ const { Department } = db;
 
 // TODO: Change from Users to Department
 router.get('/', (req,res) => {
-  Department.findAll({})
-    .then(department => res.json(department));
+    Role.findAll({})
+    .then(role => res.json(role));
 });
 
 
 router.post('/', (req, res) => {
-  let content = req.body;
+  let cont = req.body;
   
-  Department.create({
-    departmentname: content.departmentname,
-    abbreviation: content.abbreviation
+  Role.create({
+    name: cont.name
    })
-    .then(department => {
-      res.status(201).json(department);
+    .then(role => {
+      res.status(201).json(role);
     })
     .catch(err => {
       res.status(400).json(err);
@@ -41,33 +39,32 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Role.findByPk(id)
+    .then(role => {
+      if(!role) {
         return res.sendStatus(404);
       }
 
-      res.json(department);
+      res.json(role);
     });
 });
 
 
-router.put('/:id',passport.isAuthenticated(), (req, res) => {
+router.put('/:id', (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Role.findByPk(id)
+    .then(role => {
+      if(!role) {
         return res.sendStatus(404);
       }
 
-      department.update({
-        departmentname: req.body.departmentname,
-        abbreviation: req.body.abbreviation
+      role.update({
+        content: cont.content
       })
 
-      department.save()
-        .then(department => {
-          res.json(department);
+      role.save()
+        .then(commentlike => {
+          res.json(commentlike);
         })
         .catch(err => {
           res.status(400).json(err);
@@ -76,18 +73,18 @@ router.put('/:id',passport.isAuthenticated(), (req, res) => {
 });
 
 
-router.delete('/:id',passport.isAuthenticated(), (req, res) => {
+router.delete('/:id', (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Role.findByPk(id)
+    .then(role => {
+      if(!role) {
         return res.sendStatus(404);
       }
 
-      department.destroy();
+      role.destroy();
       res.status(204)
       .json({
-        message: "Successfully deleted department with id" + id
+        message: "Successfully deleted role with id" + id
       })
     });
 });

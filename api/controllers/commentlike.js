@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const passport = require('../middlewares/authentication');
-const { Department } = db;
+const { Commentlike } = db;
 
 // This is a simple example for providing basic CRUD routes for
 // a resource/model. It provides the following:
@@ -18,20 +18,20 @@ const { Department } = db;
 
 // TODO: Change from Users to Department
 router.get('/', (req,res) => {
-  Department.findAll({})
-    .then(department => res.json(department));
+    Commentlike.findAll({})
+    .then(commentlike => res.json(commentlike));
 });
 
 
-router.post('/', (req, res) => {
-  let content = req.body;
+router.post('/',passport.isAuthenticated(), (req, res) => {
+  let cont = req.body;
   
-  Department.create({
-    departmentname: content.departmentname,
-    abbreviation: content.abbreviation
+  Commentlike.create({
+    userId: cont.userid,
+    commentId: cont.commetid
    })
-    .then(department => {
-      res.status(201).json(department);
+    .then(commentlike => {
+      res.status(201).json(commentlike);
     })
     .catch(err => {
       res.status(400).json(err);
@@ -41,53 +41,52 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Commentlike.findByPk(id)
+    .then(commentlike => {
+      if(!commentlike) {
         return res.sendStatus(404);
       }
 
-      res.json(department);
+      res.json(commentlike);
     });
 });
 
 
-router.put('/:id',passport.isAuthenticated(), (req, res) => {
+/*router.put('/:id', (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Commentlike.findByPk(id)
+    .then(commentlike => {
+      if(!commentlike) {
         return res.sendStatus(404);
       }
 
-      department.update({
-        departmentname: req.body.departmentname,
-        abbreviation: req.body.abbreviation
+      commentlike.update({
+        content: cont.content
       })
 
-      department.save()
-        .then(department => {
-          res.json(department);
+      commentlike.save()
+        .then(commentlike => {
+          res.json(commentlike);
         })
         .catch(err => {
           res.status(400).json(err);
         });
     });
 });
-
+*/
 
 router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Commentlike.findByPk(id)
+    .then(commentlike => {
+      if(!commentlike) {
         return res.sendStatus(404);
       }
 
-      department.destroy();
+      commentlike.destroy();
       res.status(204)
       .json({
-        message: "Successfully deleted department with id" + id
+        message: "Successfully deleted commentlike with id" + id
       })
     });
 });

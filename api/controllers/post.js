@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const passport = require('../middlewares/authentication');
-const { Department } = db;
+const { Post } = db;
 
 // This is a simple example for providing basic CRUD routes for
 // a resource/model. It provides the following:
@@ -16,22 +16,23 @@ const { Department } = db;
 // explore other patterns to reduce code duplication.
 // TODO: Can you spot where we have some duplication below?
 
-// TODO: Change from Users to Department
+
 router.get('/', (req,res) => {
-  Department.findAll({})
-    .then(department => res.json(department));
+  Post.findAll({})
+    .then(posts => res.json(posts));
 });
 
-
-router.post('/', (req, res) => {
-  let content = req.body;
+// TODO: When creating a user, make sure passwords get hashed.
+router.post('/',passport.isAuthenticated(), (req, res) => {
+  let cont = req.body;
   
-  Department.create({
-    departmentname: content.departmentname,
-    abbreviation: content.abbreviation
+  Post.create({
+    content: cont.content, 
+    userId: cont.userId,
+    courseId: cont.courseId
    })
-    .then(department => {
-      res.status(201).json(department);
+    .then(post => {
+      res.status(201).json(post);
     })
     .catch(err => {
       res.status(400).json(err);
@@ -41,33 +42,32 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Post.findByPk(id)
+    .then(post => {
+      if(!post) {
         return res.sendStatus(404);
       }
 
-      res.json(department);
+      res.json(post);
     });
 });
 
-
+// TODO: Make updating a user more secure, especially if they want to update a password
 router.put('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Post.findByPk(id)
+    .then(post => {
+      if(!post) {
         return res.sendStatus(404);
       }
 
-      department.update({
-        departmentname: req.body.departmentname,
-        abbreviation: req.body.abbreviation
+      post.update({
+        content: req.body.content
       })
 
-      department.save()
-        .then(department => {
-          res.json(department);
+      post.save()
+        .then(post => {
+          res.json(post);
         })
         .catch(err => {
           res.status(400).json(err);
@@ -78,16 +78,16 @@ router.put('/:id',passport.isAuthenticated(), (req, res) => {
 
 router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
-  Department.findByPk(id)
-    .then(department => {
-      if(!department) {
+  Post.findByPk(id)
+    .then(post => {
+      if(!post) {
         return res.sendStatus(404);
       }
 
-      department.destroy();
+      post.destroy();
       res.status(204)
       .json({
-        message: "Successfully deleted department with id" + id
+        message: "Successfully deleted post with id" + id
       })
     });
 });
