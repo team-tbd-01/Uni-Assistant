@@ -1,0 +1,115 @@
+.body {
+    font-family: Arial;
+    font-size: 17px;
+    padding: 8px;
+  }
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+  .col-25 {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+  }
+  
+  .col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+  }
+  
+  .col-75 {
+    -ms-flex: 75%; /* IE10 */
+    flex: 75%;
+  }
+  
+  .col-25,
+  .col-50,
+  .col-75 {
+    padding: 0 16px;
+  }
+  .container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+  }
+  
+  
+  .label {
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+  }
+  
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  .a {
+    color: #2196F3;
+  }
+  
+  hr {
+    border: 1px solid lightgrey;
+    margin-left: 12px;
+    width: 100%;
+  }
+  
+  .span.price {
+    float: right;
+    color: grey;
+  }
+  @media (max-width: 800px) {
+    .col-25 {
+      margin-bottom: 20px;
+    }
+  }
+  input[type=email], input[type=password], input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  .margin1{
+    margin-top: 5%;
+    margin-left: 15px;
+  }
+  .signupbtn{
+    margin-top: 2%;
+    margin-left: 14px;
+    width:111%;
+  }
+  .signup{
+    font-size: 24px;
+    margin-left: 12px;
+  }
+  .fillinform{
+    margin-left: 12px;
+    margin-top: -15px;
+  }
+  .alert1{
+    margin-left: 12px;
+    width: 100%;
+  }

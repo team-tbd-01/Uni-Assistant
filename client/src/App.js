@@ -13,6 +13,8 @@ import ACoursePage from './pages/ACoursePage'
 import AskQuestionPage from './pages/AskQuestionPage'
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
+import Signup from './pages/Signup';
+
 
 import './App.css';
 
@@ -61,8 +63,6 @@ class App extends React.Component {
     return (
         <Router>
           <Navigation />
-          <div className="container-fluid text-center">
-            <div className="row justify-content-center">
               <Switch>
                 <Route path="/login" component={LoginPage} />
                 <Route path="/courses" component={CoursesPage} />
@@ -70,10 +70,9 @@ class App extends React.Component {
                 <Route path="/new-question" component={AskQuestionPage} />
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/about-us" component={AboutUsPage} />
+                <Route path="/Signup" component={Signup}/>
                 <Route path="/" />
-              </Switch>
-            </div>
-          </div>
+              </Switch> 
         </Router>
     );
   }
