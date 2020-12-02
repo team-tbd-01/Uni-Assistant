@@ -21,3 +21,29 @@
   color: #09d3ac;
 }
 */
+
+.courseHeader.jumbotron {
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+
+.card-body.card-text {
+  /* width: 800px; */
+}
+
+.courseCard {
+  width: 1500px;
+}
+
+.courseQuestion {
+  width: 1500px;
+}
+
+.courseBtn, .questionBtn {
+  padding-bottom: 20px;
+}
+
+.questionBox {
+  width: 600px;
+  height: 500px;
+}

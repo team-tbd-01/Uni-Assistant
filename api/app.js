@@ -6,6 +6,7 @@ const db = require('./models');
 const expressSession=require('express-session');
 const passport = require('./middlewares/authentication');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 8000;
 
 
@@ -14,6 +15,9 @@ const PORT = process.env.PORT || 8000;
 
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json())
+
+// This lets us bypass cors
+app.use(cors());
 
 // setup passport and session cookies
 app.use(expressSession({ 
