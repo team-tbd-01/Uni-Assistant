@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const passport = require('../middlewares/authentication');
 const { Course } = db;
 
 // This is a simple example for providing basic CRUD routes for
@@ -31,6 +32,10 @@ router.post('/', (req, res) => {
     course_code: req.body.code,
     // departmentId: req.body.departmentid,
     // schoolId: req.body.schoolid
+    name: req.body.coursename,
+    course_code: req.body.coursecode,
+    departmentId: req.body.departmentid,
+    schoolId: req.body.schoolid
    })
     .then(user => {
       res.status(201).json(user);
@@ -54,7 +59,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.put('/:id', (req, res) => {
+router.put('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Course.findByPk(id)
     .then(course => {
@@ -81,6 +86,7 @@ router.put('/:id', (req, res) => {
 
 
 router.delete('/:id', (req, res) => {
+router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Course.findByPk(id)
     .then(course => {

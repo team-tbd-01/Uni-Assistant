@@ -3,16 +3,40 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const db = require('./models');
+const expressSession=require('express-session');
+const passport = require('./middlewares/authentication');
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 8000;
+
+
+
 
 
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json())
 
+// This lets us bypass cors
+app.use(cors());
+
+// setup passport and session cookies
+app.use(expressSession({ 
+  secret: process.env.SESSION_SECRET, 
+  resave: false,
+  saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 // add http request logging to help us debug and audit app use
 const logFormat = process.env.NODE_ENV==='production' ? 'combined' : 'dev';
 app.use(morgan(logFormat));
+// setup passport and session cookies
+app.use(expressSession({ 
+  secret: process.env.SESSION_SECRET, 
+  resave: false,
+  saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // this mounts controllers/index.js at the route `/api`
 app.use('/api', require('./controllers'));

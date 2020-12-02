@@ -14,13 +14,16 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       }
     },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [0, 255],
-          notEmpty: true,
-        }
+    passwordHash: { type: DataTypes.STRING },
+    password: { 
+      type: DataTypes.VIRTUAL,
+      validate: {
+        isLongEnough: (val) => {
+          if (val.length < 7) {
+            throw new Error("Please choose a longer password");
+          }
+        },
+      },
     },
     email: {
         type: DataTypes.STRING,
@@ -58,6 +61,10 @@ module.exports = (sequelize, DataTypes) => {
     models.User.belongsTo(models.Description);
     models.User.belongsTo(models.Roleuser);
   };
-
+  User.beforeSave((user, options) => {
+    if(user.password) {
+      user.passwordHash = bcrypt.hashSync(user.password, 10);
+    }
+  });
   return User;
 };

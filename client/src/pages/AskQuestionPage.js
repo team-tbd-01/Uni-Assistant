@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function handleClick() {
-
+    alert("thanks you")
 }
 
 function AboutUsPage(props) {
@@ -16,7 +16,7 @@ function AboutUsPage(props) {
             <label className="h3">Question:</label>
             <textarea className="form-control questionBox" form="question"></textarea>
         </div>
-        <Link to="/courses" className="btn btn-primary" onClick={handleClick}>Submit</Link>
+        <Link to="/a-course" className="btn btn-primary" onClick={handleClick}>Submit</Link>
   </form>
   );
 }

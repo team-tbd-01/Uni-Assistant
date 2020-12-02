@@ -10,9 +10,11 @@ import CoursesPage from './pages/CoursesPage';
 import AboutUsPage from './pages/AboutUsPage';
 import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
+import AQuestionPage from './pages/AQuestionPage'
 import AskQuestionPage from './pages/AskQuestionPage'
 import LandingPage from './pages/LandingPage';
-
+import AuthButton from './components/AuthButton';
+import LoginPage from './pages/LoginPage';
 import './App.css';
 
 //This function is to allow the name of the college to change dynamically. Will need to create
@@ -37,7 +39,18 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
+        <li>
+          <NavLink className="nav-link" exact to="/newpage">
+            My New Page
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className="nav-link" exact to="/show">
+            Show Posts
+          </NavLink>
+        </li>
       </ul>
+      <AuthButton />
     </nav>
   );
 }
@@ -51,10 +64,12 @@ class App extends React.Component {
           <div className="container-fluid text-center">
             <div className="row justify-content-center">
               <Switch>
+                <Route path="/login" component={LoginPage} />
                 <Route path="/courses" component={CoursesPage} />
                 <Route path="/new-course" component={AddCoursePage} />
                 <Route path="/new-question" component={AskQuestionPage} />
                 <Route path="/a-course" component={ACoursePage} />
+                <Route path="/a-question" component={AQuestionPage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/" exact />
               </Switch>
