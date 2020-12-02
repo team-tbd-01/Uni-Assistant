@@ -85,7 +85,7 @@ router.put('/:id',passport.isAuthenticated(), (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+
 router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Course.findByPk(id)
@@ -93,7 +93,6 @@ router.delete('/:id',passport.isAuthenticated(), (req, res) => {
       if(!course) {
         return res.sendStatus(404);
       }
-
       course.destroy();
       res.status(204)
       .json({

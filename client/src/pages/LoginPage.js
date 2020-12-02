@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import auth from '../services/auth';
-import '../App.css';
+import '../login.css';
 import avatar from '../img_avatar2.png';
 
 
@@ -54,10 +54,10 @@ class LoginPage extends React.Component {
                     </div>
                         <form onSubmit={this.login}>
                             { err }
-                            <div class="container">
                                 <div className="margin">
                                     <lable for='email' className="margin"><b>E-mail</b></lable>
                                     <input 
+                                        className="email"
                                         type="email"
                                         name="email"
                                         placeholder="Email" 
@@ -67,21 +67,22 @@ class LoginPage extends React.Component {
                                 <div className="margin">
                                     <lable for='password' className="margin"><b>Password</b></lable>
                                     <input 
+                                        className="password"
                                         type="password"
                                         name="password"
                                         placeholder="Password" 
                                         value={this.state.password} 
                                         onChange={this.fieldChanged('password')} />
                                     </div>
-                                </div>
-                            <div className="login container">
+                                
+                            <div className="loginbtn">
                             <button 
                                 type="submit"
                             >Log in</button>
                             </div>
                         </form>
                 </div>
-          </div>
+              </div>
     );
   }
 }

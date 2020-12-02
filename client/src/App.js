@@ -12,7 +12,7 @@ import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
 import AQuestionPage from './pages/AQuestionPage'
 import AskQuestionPage from './pages/AskQuestionPage'
-import LandingPage from './pages/LandingPage';
+/*import LandingPage from './pages/LandingPage';*/
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
@@ -73,10 +73,6 @@ class App extends React.Component {
                 <Route path="/Signup" component={Signup}/>
                 <Route path="/" />
               </Switch> 
-                <Route path="/" exact />
-              </Switch>
-            </div>
-          </div>
         </Router>
     );
   }

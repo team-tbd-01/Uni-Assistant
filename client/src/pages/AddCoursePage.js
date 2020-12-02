@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-class AddCoursePage extends React.Component{
+/*class AddCoursePage extends React.Component{
 
     state = {
         error: false,
@@ -76,11 +76,11 @@ class AddCoursePage extends React.Component{
                            onChange={this.codeChanged}/>
                 </div>
                 <button className="btn btn-primary" onClick={this.savePost}>Save Post</button>
-                {/*<Link to="/courses" className="btn btn-primary" onClick={handleClick}>Submit</Link>*/}
+                {/*<Link to="/courses" className="btn btn-primary" onClick={handleClick}>Submit</Link>}
             </form>
         );
     }
-
+*/
 class AboutUsPage extends React.Component {
 
   state = {
@@ -225,4 +225,4 @@ class AboutUsPage extends React.Component {
   }
 }
 
-export default AddCoursePage;
+export default AboutUsPage;
