@@ -77,7 +77,6 @@ router.put('/:id',passport.isAuthenticated(), (req, res) => {
     });
 });
 
-
 router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   User.findByPk(id)

@@ -10,12 +10,12 @@ import CoursesPage from './pages/CoursesPage';
 import AboutUsPage from './pages/AboutUsPage';
 import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
+import AQuestionPage from './pages/AQuestionPage'
 import AskQuestionPage from './pages/AskQuestionPage'
+import LandingPage from './pages/LandingPage';
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
-
-
 import './App.css';
 
 //This function is to allow the name of the college to change dynamically. Will need to create
@@ -28,14 +28,13 @@ function ForumName(props){
 function Navigation(props) {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
-      <Link className="navbar-brand" to="/">Uni-Assistant</Link>
+      <ForumName name = "CUNY" />
       <ul className="navbar-nav mr-auto">
       <li className="nav-item">
           <NavLink className="nav-link" exact to="/courses">
             Courses
           </NavLink>
         </li>
-
         <li className="nav-item">
           <NavLink className="nav-link" exact to="/about-us">
             About Us
@@ -69,10 +68,15 @@ class App extends React.Component {
                 <Route path="/new-course" component={AddCoursePage} />
                 <Route path="/new-question" component={AskQuestionPage} />
                 <Route path="/a-course" component={ACoursePage} />
+                <Route path="/a-question" component={AQuestionPage} />
                 <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/Signup" component={Signup}/>
                 <Route path="/" />
               </Switch> 
+                <Route path="/" exact />
+              </Switch>
+            </div>
+          </div>
         </Router>
     );
   }

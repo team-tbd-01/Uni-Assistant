@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     },
-   
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -62,12 +61,10 @@ module.exports = (sequelize, DataTypes) => {
     models.User.belongsTo(models.Description);
     models.User.belongsTo(models.Roleuser);
   };
-  
   User.beforeSave((user, options) => {
     if(user.password) {
       user.passwordHash = bcrypt.hashSync(user.password, 10);
     }
   });
-
   return User;
 };

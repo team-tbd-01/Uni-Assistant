@@ -22,7 +22,6 @@ router.get('/', (req,res) => {
     .then(commentlike => res.json(commentlike));
 });
 
-
 router.post('/',passport.isAuthenticated(), (req, res) => {
   let cont = req.body;
   

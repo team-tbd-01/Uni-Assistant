@@ -22,7 +22,6 @@ router.get('/', (req,res) => {
     .then(roleuser => res.json(roleuser));
 });
 
-
 router.post('/',passport.isAuthenticated(), (req, res) => {
   let cont = req.body;
   
