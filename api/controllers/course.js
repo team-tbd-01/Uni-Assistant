@@ -84,8 +84,6 @@ router.put('/:id',passport.isAuthenticated(), (req, res) => {
     });
 });
 
-
-router.delete('/:id', (req, res) => {
 router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Course.findByPk(id)

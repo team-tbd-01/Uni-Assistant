@@ -52,7 +52,6 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.put('/:id', (req, res) => {
 router.put('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Department.findByPk(id)
