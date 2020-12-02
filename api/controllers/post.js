@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const passport = require('../middlewares/authentication');
 const { Post } = db;
 
 // This is a simple example for providing basic CRUD routes for
@@ -22,7 +23,7 @@ router.get('/', (req,res) => {
 });
 
 // TODO: When creating a user, make sure passwords get hashed.
-router.post('/', (req, res) => {
+router.post('/',passport.isAuthenticated(), (req, res) => {
   let cont = req.body;
   
   Post.create({
@@ -52,7 +53,7 @@ router.get('/:id', (req, res) => {
 });
 
 // TODO: Make updating a user more secure, especially if they want to update a password
-router.put('/:id', (req, res) => {
+router.put('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Post.findByPk(id)
     .then(post => {
@@ -75,7 +76,7 @@ router.put('/:id', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Post.findByPk(id)
     .then(post => {

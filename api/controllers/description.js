@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const passport = require('../middlewares/authentication');
 const { Description } = db;
 
 // This is a simple example for providing basic CRUD routes for
@@ -52,7 +53,7 @@ router.get('/:id', (req, res) => {
 });
 
 // TODO: Make updating a user more secure, especially if they want to update a password
-router.put('/:id', (req, res) => {
+router.put('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Description.findByPk(id)
     .then(description => {
@@ -75,7 +76,7 @@ router.put('/:id', (req, res) => {
 });
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Description.findByPk(id)
     .then(description => {
