@@ -5,20 +5,36 @@ function handleClick() {
     alert("thanks you")
 }
 
-function AboutUsPage(props) {
-  return (
-    <form id="question">
-        <div className="form-group">
-            <label className="h3">Title:</label>
-            <input className="form-control" type="text" />
-        </div>
-        <div className="form-group">
-            <label className="h3">Question:</label>
-            <textarea className="form-control questionBox" form="question"></textarea>
-        </div>
-        <Link to="/a-course" className="btn btn-primary" onClick={handleClick}>Submit</Link>
-  </form>
-  );
+class AboutUsPage extends React.Component {
+
+    state = {
+        postContent: ''
+    }
+
+    constructor(props) {
+        super(props)
+        this.setPostContent = this.setPostContent.bind(this);
+    }
+
+    setPostContent(event) {
+        this.setState({
+            postContent: event.target.value
+        })
+    }
+
+    render() {
+        return (
+            <form id="question">
+                <p>Hello</p>
+                <div className="form-group">
+                    <label className="h3">Question:</label>
+                    <textarea onChange={this.setPostContent} className="form-control questionBox" form="question"></textarea>
+                </div>
+                <button className="btn btn-primary" onClick={handleClick}>Submit</button>
+          </form>
+          );
+    }
+  
 }
 
 export default AboutUsPage;

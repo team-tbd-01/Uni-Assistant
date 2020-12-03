@@ -186,41 +186,47 @@ class AboutUsPage extends React.Component {
 
   render() {
     return (
-      <form>
-          <div className="form-group">
-              <label className="h3">Course Name:</label>
-              <input className="form-control" onChange={this.setCourseName} value={this.state.course_name} type="text"/>
-              <small className="form-text text-muted">Example: CISC, CIS, etc.</small>
-          </div>
-          <div className="form-group">
-              <label className="h3">Course Code:</label>
-              <input className="form-control" onChange={this.setCourseCode} value={this.state.course_code} type="text"/>
-              <small className="form-text text-muted">Example: 101, 3220, etc.</small>
-          </div>
-          <div className="form-group">
-              <label className="h3">Department:</label>
-              <select onChange={this.setDepartment} className="form-control" id="exampleFormControlSelect1">
-              <option value="" selected disabled>Choose One</option>
-                {
-                  this.state.departmentData.map(department => (
-                    <option value={department.id}>{department.departmentname}</option>
-                  ))
-                }
-              </select>
-          </div>
-          <div className="form-group">
-              <label className="h3">School:</label>
-              <select onChange={this.setSchool} className="form-control" id="exampleFormControlSelect1">
+      <div className="container-fluid text-center">
+        <div className="row justify-content-center">
+          <form>
+            <div className="form-group">
+                <label className="h3">Course Name:</label>
+                <input className="form-control" onChange={this.setCourseName} value={this.state.course_name} type="text"/>
+                <small className="form-text text-muted">Example: CISC, CIS, etc.</small>
+            </div>
+            <div className="form-group">
+                <label className="h3">Course Code:</label>
+                <input className="form-control" onChange={this.setCourseCode} value={this.state.course_code} type="text"/>
+                <small className="form-text text-muted">Example: 101, 3220, etc.</small>
+            </div>
+            <div className="form-group">
+                <label className="h3">Department:</label>
+                <select onChange={this.setDepartment} className="form-control" id="exampleFormControlSelect1">
                 <option value="" selected disabled>Choose One</option>
-                {
-                  this.state.schoolData.map(school => (
-                    <option value={school.id}>{school.schoolname}</option>
-                  ))
-                }
-              </select>
-          </div>
-          <a href="#" className="btn btn-primary" onClick={this.handleClick}>Submit</a>
-    </form>
+                  {
+                    this.state.departmentData.map(department => (
+                      <option value={department.id}>{department.departmentname}</option>
+                    ))
+                  }
+                </select>
+            </div>
+            <div className="form-group">
+                <label className="h3">School:</label>
+                <select onChange={this.setSchool} className="form-control" id="exampleFormControlSelect1">
+                  <option value="" selected disabled>Choose One</option>
+                  {
+                    this.state.schoolData.map(school => (
+                      <option value={school.id}>{school.schoolname}</option>
+                    ))
+                  }
+                </select>
+            </div>
+            <a href="#" className="btn btn-primary" onClick={this.handleClick}>Submit</a>
+          </form>
+        </div>
+        
+      </div>
+      
     );
   }
 }
