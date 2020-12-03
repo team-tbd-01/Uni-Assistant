@@ -44,16 +44,6 @@ function Navigation(props) {
             About Us
           </NavLink>
         </li>
-        <li>
-          <NavLink className="nav-link" exact to="/newpage">
-            My New Page
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="nav-link" exact to="/show">
-            Show Posts
-          </NavLink>
-        </li>
       </ul>
       <AuthButton />
     </nav>

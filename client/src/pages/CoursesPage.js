@@ -4,7 +4,7 @@ import Course from '../components/Course';
 
 function CoursesPage(props) {
     return(
-        <div>
+        <div className="text-center">
             <h1 className="text-primary">Courses</h1>
             <div className="courseBtn">
                 <Link to="/new-course" className="btn btn-primary">Add Course</Link>
