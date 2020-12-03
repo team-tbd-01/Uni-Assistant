@@ -9,9 +9,7 @@ const app = express();
 const cors = require('cors');
 const PORT = process.env.PORT || 8000;
 
-
-
-
+require('dotenv').config();
 
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json())
