@@ -23,7 +23,7 @@ router.get('/', (req,res) => {
 });
 
 // TODO: When creating a user, make sure passwords get hashed.
-router.post('/',passport.isAuthenticated(), (req, res) => {
+router.post('/', passport.isAuthenticated(), (req, res) => {
   let cont = req.body;
   console.log(cont);
   Post.create({

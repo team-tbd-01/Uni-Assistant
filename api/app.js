@@ -15,15 +15,10 @@ require('dotenv').config();
 app.use(bodyParser.json())
 
 // This lets us bypass cors
-app.use(cors());
-
-// setup passport and session cookies
-app.use(expressSession({ 
-  secret: process.env.SESSION_SECRET, 
-  resave: false,
-  saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
 
 // add http request logging to help us debug and audit app use
 const logFormat = process.env.NODE_ENV==='production' ? 'combined' : 'dev';
