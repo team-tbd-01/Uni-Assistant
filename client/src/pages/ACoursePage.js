@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Question from '../components/Question'
 import queryString from 'query-string';
 import AboutUsPage from '../pages/AboutUsPage'
+import '../css/courses.css';
 
 class ACoursePage extends React.Component {
 
@@ -77,14 +78,13 @@ class ACoursePage extends React.Component {
                 <div>
                     <h3 className="courseHeader jumbotron">{this.state.courseData.name}</h3>
                 </div>
-                <h1 className="text-primary position-relative">Questions</h1>
+                <h1 className="text-primary position-relative text-center">Questions</h1>
                 
-                <textarea onChange={this.setPostContent}></textarea>
-                <button onClick={this.sendPostContent} className="btn btn-primary">Submit Question</button>
+                <Link to="/new-question" className="btn-primary btn new-question mb-3">New Question</Link>
 
                 {
                     this.state.postData.map(post => (
-                        <Question question={post.content}/>
+                        <Question id={post.id} question={post.content}/>
                     ))
                 }
             </div>
