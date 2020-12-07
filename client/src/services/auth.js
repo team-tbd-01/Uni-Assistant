@@ -7,6 +7,12 @@
 
 const auth = {
     isAuthenticated: false,
+    initilize () {
+      this.isAuthenticated = localStorage.getItem("isAuthenticated")
+    },
+    deinicilize() {
+      this.isAuthenticated = localStorage.getItem("isAuthenticated")
+    },
     authenticate(email, password) {
       return fetch('http://localhost:8000/api/auth/login', { 
         method: 'POST',
@@ -24,8 +30,10 @@ const auth = {
           return response.json();
         })
         .then((body) => {
-          console.log(body)
           this.isAuthenticated = true;
+          const json = JSON.stringify(body)
+          localStorage.setItem('user', json)
+          localStorage.setItem('isAuthenticated', true)
           return body;
         });
     },
@@ -45,6 +53,7 @@ const auth = {
         })
         .then((body) => {
           this.isAuthenticated = false;
+          localStorage.setItem('isAuthenticated', false)
           return body;
         });
     },
@@ -67,6 +76,9 @@ const auth = {
         })
         .then((body) => {
           console.log(body)
+          const json = JSON.stringify(body)
+          localStorage.setItem('user', json)
+          localStorage.setItem('isAuthenticated', true)
           this.isAuthenticated = true;
           return body;
         });

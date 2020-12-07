@@ -17,6 +17,11 @@ import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
 import './App.css';
 import './css/login.css';
+import axios from "axios";
+import auth from './services/auth';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
+import 'materialize-css';
 
 //This function is to allow the name of the college to change dynamically. Will need to create
 //another function that will check what school the user is from and will put the schools name.
@@ -27,22 +32,56 @@ function ForumName(props){
 
 function Navigation(props) {
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-3">
-      <ForumName name = "CUNY" />
-      <ul className="navbar-nav mr-auto">
-      <li className="nav-item">
-          <NavLink className="nav-link" exact to="/courses">
-            Courses
-          </NavLink>
-        </li>
+    <nav >
+      <a href="#!" class="brand-logo center">Uni-Assistant</a>
+      <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><Link  exact to="/courses">Courses</Link></li>
       </ul>
-      <AuthButton />
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <AuthButton/>
+      </ul>
+      </div>
     </nav>
   );
 }
 
 
 class App extends React.Component {
+  constructor(){
+    super();
+
+    this.state ={
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+    };
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+  checkLoginStatus(){
+    fetch("/api/auth/logged_in")
+    .then((response) => {
+      console(response)
+      console.log(response.ok)
+          const json = JSON.stringify(response)
+          localStorage.setItem('user', json)
+          localStorage.setItem('isAuthenticated', true)
+    })
+    .catch(error => {
+      console.log(error)
+      localStorage.setItem('isAuthenticated', false)
+    });
+  }
+  componentDidMount() {
+    this.checkLoginStatus();
+  }
+  handleLogin(data) {
+    this.setState({
+      loggedInstatus: "LOGGED_IN",
+    })
+  }
+
+
+
   render() {
     return (
         <Router>

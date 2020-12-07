@@ -1,12 +1,12 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-
 import auth from '../services/auth';
-
 const classes = "btn btn-primary";
 
 const AuthButton = withRouter(({ history }) => {
-  if(!auth.isAuthenticated) {
+    let isAuthenticated = localStorage.getItem("isAuthenticated");
+   
+    if(isAuthenticated === "false") {
     return (<div>
       <Link className={classes} to="/login">Login</Link> <Link className={classes} to="/signup">Sign up</Link>
       </div>);
@@ -17,7 +17,6 @@ const AuthButton = withRouter(({ history }) => {
   }
   return (
     <div>
-      Welcome!
       <button className={classes} onClick={logout}>Logout</button>
     </div>
   );

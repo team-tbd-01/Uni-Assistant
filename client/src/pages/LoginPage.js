@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { Component} from 'react';
 import { Redirect } from 'react-router-dom';
 import auth from '../services/auth';
 import '../login.css';
 import avatar from '../img_avatar2.png';
-
-
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
+import 'materialize-css';
+import {Icon}  from 'react-materialize';
 class LoginPage extends React.Component {
   state = {
     redirectToReferrer: false,
     failed: false, 
     email: "",
     password: "",
-  }
+  };
+
 
   fieldChanged = (name) => {
     return (event) => {
@@ -46,40 +49,42 @@ class LoginPage extends React.Component {
     }
 
     return (
-          <div className="card cardsize">
-              <div className="card-header header">Log in</div>
+          <div className="card cardsize3">
+              <div className="card-header header4">Log in</div>
                 <div className="card-body">
                     <div className="imgcontainer">
                         <img src={avatar} alt="Avatar" className="avatar"/>
                     </div>
                         <form onSubmit={this.login}>
                             { err }
-                                <div className="margin">
-                                    <lable for='email' className="margin"><b>E-mail</b></lable>
+                                <div className="marg input-field">
                                     <input 
-                                        className="email"
+                                        className="validate"
                                         type="email"
                                         name="email"
-                                        placeholder="Email" 
                                         value={this.state.email} 
                                         onChange={this.fieldChanged('email')} />
+                                        <label for="email" className="active">Email</label>
+                                    
                                 </div>
-                                <div className="margin">
-                                    <lable for='password' className="margin"><b>Password</b></lable>
+                                <div className="input-field">
+                                <label for="password" className="e">Password</label>
                                     <input 
-                                        className="password"
+                                        className="validate"
                                         type="password"
                                         name="password"
-                                        placeholder="Password" 
                                         value={this.state.password} 
                                         onChange={this.fieldChanged('password')} />
                                     </div>
-                                
-                            <div className="loginbtn">
-                            <button 
-                                type="submit"
-                            >Log in</button>
-                            </div>
+                                    <p>
+                                      <label>
+                                        <input id="indeterminate-checkbox" type="checkbox" />
+                                        <span>Remember me</span>
+                                      </label>
+                                    </p>
+                                    <button class="btn waves-effect waves-light submit" type="submit" name="action">Log in
+  </button>
+                          
                         </form>
                 </div>
               </div>

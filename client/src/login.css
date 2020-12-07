@@ -9,59 +9,29 @@
     border-radius: 50%;
   }
   
-  button:hover {
-    opacity: 0.8;
-  }
-  .cardsize{
-    height: 500px;
+  
+
+  .cardsize3{
+    height: 520px;
     width: 500px;
-    margin-top: 10px;
+    margin-top: 12px;
     margin-left: 470px
   }
   
-  .email{
-    width: 90% !important; 
-    padding: 12px 20px;
-    margin: 8px 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  .password{
-    width: 90% !important; 
-    padding: 12px 20px;
-    margin: 8px 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+  .submit{
+    width: 100% !important;
+    margin-top: 35px;
   }
   
-  button {
-    background-color: green;
-    color: white;
-    padding: 14px 20px;
-    cursor: pointer;
-    width: 90%;
-    box-sizing: border-box;
-    display: inline-block;
+  .marg{
+    margin-top: 55px !important;
   }
-  .margin{
-    margin-top: 5%;
-    margin-left: 15px;
-  }
-  .loginbtn{
-    margin-top: 5%;
-    margin-left: 29px;
-    width:97%;
-  }
-  
-  .header{
-    background-color: green!important;
+  .header4{
+    background-color: #26a69a !important;
     text-align: center;
     color: white;
   }
   .headersignup{
-    background-color: green!important;
     text-align: left;
     font-size: 30px;
     color: white;
