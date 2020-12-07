@@ -74,7 +74,7 @@ class ACoursePage extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="text-center">
                 <div>
                     <h3 className="courseHeader jumbotron">{this.state.courseData.name}</h3>
                 </div>

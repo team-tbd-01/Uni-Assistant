@@ -53,7 +53,7 @@ class AQuestionPage extends React.Component {
 
                 <div className="form-group">
                     {/* <label className="h5">Comment:</label> */}
-                    <textarea className="" form="question"></textarea>
+                    <textarea className="form-control mx-auto w-50" form="question" maxLength="500"></textarea>
                 </div>
                 <Link className="btn btn-primary">Submit</Link>
             </div>

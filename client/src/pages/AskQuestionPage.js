@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function handleClick() {
-    alert("thanks you")
+
 }
 
 class AboutUsPage extends React.Component {
@@ -53,7 +53,6 @@ class AboutUsPage extends React.Component {
           </form>
           );
     }
-  
-}
+
 
 export default AboutUsPage;

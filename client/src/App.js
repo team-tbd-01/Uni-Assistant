@@ -12,7 +12,6 @@ import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
 import AQuestionPage from './pages/AQuestionPage'
 import AskQuestionPage from './pages/AskQuestionPage'
-/*import LandingPage from './pages/LandingPage';*/
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';

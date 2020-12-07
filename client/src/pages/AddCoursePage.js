@@ -81,7 +81,7 @@ import {Link} from 'react-router-dom';
         );
     }
 */
-class AboutUsPage extends React.Component {
+class AddCoursePage extends React.Component {
 
   state = {
     course_name: '',
@@ -226,9 +226,8 @@ class AboutUsPage extends React.Component {
         </div>
         
       </div>
-      
     );
   }
 }
 
-export default AboutUsPage;
+export default AddCoursePage;
