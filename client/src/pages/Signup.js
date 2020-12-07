@@ -55,51 +55,48 @@ class Signup extends React.Component{
                         <div className="container">
                           <form onSubmit={this.login}>
                             <div>
-                              <p className="signup"><b>Sign up</b></p>
+                              <p className="signup1"><b>Sign up</b></p>
                               <p className="fillinform">Please fill in this form to create an account.</p>
                             </div>
                             <hr></hr>
                               { err }
                               <div className="row">
                                     <div className="col-50">
-                                        <lable for='email' className="margin1"><b>E-mail</b></lable>
+                                    <input
+                                        placeholder = "Email"
+                                        className="validate"
+                                        type="email"
+                                        name="email"
+                                        value={this.state.email} 
+                                        onChange={this.fieldChanged('email')} />
                                         <input 
-                                            type="email"
-                                            name="email"
-                                            placeholder="Email" 
-                                            value={this.state.email} 
-                                            onChange={this.fieldChanged('email')} />
-                                        <lable for='firstname' className="margin1"><b>First Name</b></lable>
-                                        <input 
+                                            placeholder = "First Name"                                            className = "validate"
                                             type="text"
-                                            name="email"
-                                            placeholder="First Name" 
+                                            name="firstname"
                                             value={this.state.firstName} 
                                             onChange={this.fieldChanged('firstName')} />
-                                        <lable for='password' className="margin1"><b>Password</b></lable>
                                         <input 
+                                            className = "validate"
                                             type="password"
                                             name="password"
-                                            placeholder="Password" 
+                                            placeholder = "Password"
                                             value={this.state.password} 
                                             onChange={this.fieldChanged('password')} />
+                                            
                                     </div>
                                         <div className="col-50">
-                                        <lable for='username' className="margin1"><b>User name</b></lable>
                                         <input 
                                             type="text"
                                             name="username"
                                             placeholder="Username" 
                                             value={this.state.userName} 
                                             onChange={this.fieldChanged('userName')} />
-                                        <lable for='lastname' className="margin1"><b>Last Name</b></lable>
                                         <input
                                             type="text"
                                             name="lastname"
                                             placeholder="Last Name" 
                                             value={this.state.lastName} 
                                             onChange={this.fieldChanged('lastName')} />
-                                        <lable for='confirmPassword' className="margin1"><b>Confrim Password</b></lable>
                                         <input
                                             type="password"
                                             name="password"
@@ -108,11 +105,8 @@ class Signup extends React.Component{
                                             onChange={this.fieldChanged('confirmPassword')} />
                                         </div>
                                 </div>
-                                <div className="signupbtn">
-                            <button 
-                                type="submit"
-                            >Sign up</button>
-                            </div>
+                                <button class="btn waves-effect waves-light submit" type="submit" name="action">sign up
+  </button>
                           </form>
                         </div>
       );
