@@ -80,9 +80,7 @@ import {Link} from 'react-router-dom';
             </form>
         );
     }
-  }
-  */
-
+*/
 class AddCoursePage extends React.Component {
 
   state = {
@@ -188,8 +186,9 @@ class AddCoursePage extends React.Component {
 
   render() {
     return (
-      <div className="text-center mx-auto w-50">
-        <form>
+      <div className="container-fluid text-center">
+        <div className="row justify-content-center">
+          <form>
             <div className="form-group">
                 <label className="h3">Course Name:</label>
                 <input className="form-control" onChange={this.setCourseName} value={this.state.course_name} type="text"/>
@@ -223,8 +222,10 @@ class AddCoursePage extends React.Component {
                 </select>
             </div>
             <a href="#" className="btn btn-primary" onClick={this.handleClick}>Submit</a>
-      </form>
-    </div>
+          </form>
+        </div>
+        
+      </div>
     );
   }
 }

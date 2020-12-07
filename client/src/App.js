@@ -35,11 +35,6 @@ function Navigation(props) {
             Courses
           </NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/about-us">
-            About Us
-          </NavLink>
-        </li>
       </ul>
       <AuthButton />
     </nav>
@@ -59,7 +54,6 @@ class App extends React.Component {
                 <Route path="/new-question" component={AskQuestionPage} />
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/a-question" component={AQuestionPage} />
-                <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/Signup" component={Signup}/>
                 <Route path="/" />
               </Switch> 

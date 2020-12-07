@@ -25,13 +25,8 @@ router.get('/', (req,res) => {
 
 
 router.post('/', (req, res) => {
-  let content = req.body;
   
   Course.create({
-    name: req.body.name,
-    course_code: req.body.code,
-    // departmentId: req.body.departmentid,
-    // schoolId: req.body.schoolid
     name: req.body.coursename,
     course_code: req.body.coursecode,
     departmentId: req.body.departmentid,
@@ -84,11 +79,6 @@ router.put('/:id',passport.isAuthenticated(), (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> bd8f2c921912f8f4bee9bcfecb2c214ae3d4b473
 router.delete('/:id',passport.isAuthenticated(), (req, res) => {
   const { id } = req.params;
   Course.findByPk(id)
