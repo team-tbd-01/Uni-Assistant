@@ -33,12 +33,10 @@ function ForumName(props){
 function Navigation(props) {
   return (
     <nav >
-      <a href="#!" class="brand-logo center">CUNY FORUM</a>
+      <a href="#!" class="brand-logo center">Uni-Assistant</a>
       <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li><Link  exact to="/courses">Courses</Link></li>
-        <li><Link  exact to="/about-us">About Us</Link></li>
-        <li><Link  exact to="/show">Show Posts</Link></li>
+        <li><Link  exact to="/courses">Courses</Link></li>
       </ul>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <AuthButton/>
@@ -95,7 +93,6 @@ class App extends React.Component {
                 <Route path="/new-question" component={AskQuestionPage} />
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/a-question" component={AQuestionPage} />
-                <Route path="/about-us" component={AboutUsPage} />
                 <Route path="/Signup" component={Signup}/>
                 <Route path="/" />
               </Switch> 

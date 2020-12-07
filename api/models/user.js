@@ -58,7 +58,6 @@ module.exports = (sequelize, DataTypes) => {
     models.User.hasMany(models.Post);
     models.User.hasMany(models.Commentlike);
     models.User.hasMany(models.Comment);
-    models.User.belongsTo(models.Description);
     models.User.belongsTo(models.Roleuser);
   };
   User.beforeSave((user, options) => {

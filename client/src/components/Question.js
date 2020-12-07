@@ -9,12 +9,7 @@ function Question(props) {
                     <h5>{props.question}</h5>
                 </div>
                 <div className="card-footer small text-muted">
-                    <Link to={{
-                        pathname: "/a-question",
-                        state: {
-                            question: props.question
-                        }
-                    }} className="btn btn-primary mx-auto">View Question</Link>
+                    <Link to={`/a-question?id=${props.id}`} className="btn btn-primary mx-auto">View Question</Link>
                 </div>
             </div>
         </div>

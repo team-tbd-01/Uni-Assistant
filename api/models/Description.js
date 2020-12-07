@@ -23,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   Description.associate = (models) => {
     // associations can be defined here
 
-    models.Description.hasMany(models.User);
-    models.Description.hasMany(models.Course);
+    models.Description.belongsTo(models.User);
+    models.Description.belongsTo(models.Course);
   };
 
   return Description;

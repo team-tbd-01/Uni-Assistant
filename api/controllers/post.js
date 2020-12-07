@@ -23,18 +23,19 @@ router.get('/', (req,res) => {
 });
 
 // TODO: When creating a user, make sure passwords get hashed.
-router.post('/',passport.isAuthenticated(), (req, res) => {
+router.post('/', passport.isAuthenticated(), (req, res) => {
   let cont = req.body;
-  
+  console.log(cont);
   Post.create({
     content: cont.content, 
-    userId: cont.userId,
+    userId: req.user.id,
     courseId: cont.courseId
    })
     .then(post => {
       res.status(201).json(post);
     })
     .catch(err => {
+      console.log(err)
       res.status(400).json(err);
     });
 });
@@ -52,8 +53,26 @@ router.get('/:id', (req, res) => {
     });
 });
 
+router.get('/course/:id', (req, res) => {
+  const { id } = req.params;
+
+  Post.findAll({
+    where: {
+      courseId: id
+    }
+  })
+  .then(post => {
+    if (!post) {
+      return res.sendStatus(404);
+    }
+
+    res.json(post);
+  })
+})
+
 // TODO: Make updating a user more secure, especially if they want to update a password
 router.put('/:id',passport.isAuthenticated(), (req, res) => {
+  
   const { id } = req.params;
   Post.findByPk(id)
     .then(post => {

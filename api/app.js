@@ -12,20 +12,26 @@ const cookieParser= require("cookie-parser")
 
 require('dotenv').config();
 
+// This lets us bypass cors
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
 // this lets us parse 'application/json' content in http requests
 app.use(bodyParser.json());
-// This lets us bypass cors
-app.use(cors(
- ));
 app.use(cookieParser());
+
 // setup passport and session cookies
 app.use(expressSession({ 
   secret: process.env.SESSION_SECRET, 
   resave: false,
   saveUninitialized: true,
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
+
 // add http request logging to help us debug and audit app use
 const logFormat = process.env.NODE_ENV==='production' ? 'combined' : 'dev';
 app.use(morgan(logFormat));

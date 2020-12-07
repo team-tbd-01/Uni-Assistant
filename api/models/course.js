@@ -19,8 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         len: [0, 10],
-        notEmpty: true,
-        allowNull: false,
+        notEmpty: true
       }
     },
   }, {
@@ -30,7 +29,6 @@ module.exports = (sequelize, DataTypes) => {
 
   Course.associate = (models) => {
     models.Course.hasMany(models.Post);
-    models.Course.belongsTo(models.Description);
   };
 
   return Course;

@@ -28,7 +28,7 @@ router.post('/', passport.isAuthenticated(),(req, res) => {
   
   Comment.create({
     content: cont.content,
-    userId: cont.userid,
+    userId: req.user.id,
     postId: cont.postid
    })
     .then(comment => {
@@ -51,6 +51,23 @@ router.get('/:id', (req, res) => {
       res.json(comment);
     });
 });
+
+router.get('/post/:id', (req, res) => {
+  const { id } = req.params;
+
+  Comment.findAll({
+    where: {
+      postId: id
+    }
+  })
+  .then(comment => {
+    if (!comment) {
+      return res.sendStatus(404);
+    }
+
+    res.json(comment);
+  })
+})
 
 
 router.put('/:id',passport.isAuthenticated(), (req, res) => {
