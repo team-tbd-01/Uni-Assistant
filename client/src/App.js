@@ -7,7 +7,6 @@ import {
   NavLink
 } from 'react-router-dom';
 import CoursesPage from './pages/CoursesPage';
-import AboutUsPage from './pages/AboutUsPage';
 import AddCoursePage from './pages/AddCoursePage';
 import ACoursePage from './pages/ACoursePage'
 import AQuestionPage from './pages/AQuestionPage'
@@ -15,10 +14,9 @@ import AskQuestionPage from './pages/AskQuestionPage'
 import AuthButton from './components/AuthButton';
 import LoginPage from './pages/LoginPage';
 import Signup from './pages/Signup';
+import landingpage from './pages/landingpage';
 import './App.css';
 import './css/login.css';
-import axios from "axios";
-import auth from './services/auth';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'materialize-css';
@@ -101,7 +99,7 @@ class App extends React.Component {
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/a-question" component={AQuestionPage} />
                 <Route path="/Signup" component={Signup}/>
-                <Route path="/" />
+                <Route path="/" component={landingpage} />
               </Switch> 
         </Router>
     );
