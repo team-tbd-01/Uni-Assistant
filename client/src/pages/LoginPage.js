@@ -6,7 +6,6 @@ import avatar from '../img_avatar2.png';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'materialize-css';
-import {Icon}  from 'react-materialize';
 class LoginPage extends React.Component {
   state = {
     redirectToReferrer: false,
