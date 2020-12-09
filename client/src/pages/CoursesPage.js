@@ -40,7 +40,15 @@ class CoursesPage extends React.Component {
                     <div>
                         <h1 className="text-primary">Courses</h1>
                         <div className="courseBtn">
-                            <Link to="/new-course" className="btn btn-primary">Add Course</Link>
+                            <div className="btn-group mr-2">
+                                <Link to="/new-course" className="btn btn-primary">Add Course</Link>
+                            </div>
+                            <div className="btn-group mr-2">
+                                <Link to="/new-department" className="btn btn-primary">Add Department</Link>
+                            </div>
+                            <div className="btn-group mr-2">
+                                <Link to="/new-college" className="btn btn-primary">Add College</Link>
+                            </div>
                         </div>
 
                         {
