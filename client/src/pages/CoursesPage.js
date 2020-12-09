@@ -41,7 +41,6 @@ class CoursesPage extends React.Component {
                     <div>
                         <h1 className="text-primary">Courses</h1>
                         <div className="courseBtn">
-<<<<<<< HEAD
                             <div className="row">
                                 <div className="col">
                                     <Link to="/new-course" className="btn btn-primary">Add Course</Link>
@@ -52,17 +51,6 @@ class CoursesPage extends React.Component {
                             </div>
                             
                             
-=======
-                            <div className="btn-group mr-2">
-                                <Link to="/new-course" className="btn btn-primary">Add Course</Link>
-                            </div>
-                            <div className="btn-group mr-2">
-                                <Link to="/new-department" className="btn btn-primary">Add Department</Link>
-                            </div>
-                            <div className="btn-group mr-2">
-                                <Link to="/new-college" className="btn btn-primary">Add College</Link>
-                            </div>
->>>>>>> 1d0ec25c80c23e7d6ef4cdbf79c8a17db9c5d2d0
                         </div>
 
                         {

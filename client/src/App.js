@@ -21,12 +21,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'materialize-css';
 import Cookies from 'js-cookie';
-<<<<<<< HEAD
 import AddSchoolDepartment from './pages/AddSchoolDepartmentPage';
-=======
-import AddCollegePage from "./pages/AddCollegePage";
-import AddDepartmentPage from "./pages/AddDepartmentPage";
->>>>>>> 1d0ec25c80c23e7d6ef4cdbf79c8a17db9c5d2d0
 
 //This function is to allow the name of the college to change dynamically. Will need to create
 //another function that will check what school the user is from and will put the schools name.
@@ -97,18 +92,12 @@ class App extends React.Component {
                 <Route path="/login" component={LoginPage} />
                 <Route path="/courses" component={CoursesPage} />
                 <Route path="/new-course" component={AddCoursePage} />
-                <Route path="/new-college" component={AddCollegePage} />
-                <Route path="/new-department" component={AddDepartmentPage} />
                 <Route path="/new-question" component={AskQuestionPage} />
                 <Route path="/a-course" component={ACoursePage} />
                 <Route path="/a-question" component={AQuestionPage} />
                 <Route path="/Signup" component={Signup}/>
-<<<<<<< HEAD
                 <Route path="/new-school-department" component={AddSchoolDepartment}/>
-                <Route path="/" />
-=======
-                <Route path="/" component={landingpage} />
->>>>>>> 1d0ec25c80c23e7d6ef4cdbf79c8a17db9c5d2d0
+                <Route path="/" component={landingpage}/>
               </Switch> 
         </Router>
     );
