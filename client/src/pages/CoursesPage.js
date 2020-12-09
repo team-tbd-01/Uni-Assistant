@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Course from '../components/Course';
+import '../css/allcourses.css';
 
 class CoursesPage extends React.Component {
 
@@ -40,7 +41,16 @@ class CoursesPage extends React.Component {
                     <div>
                         <h1 className="text-primary">Courses</h1>
                         <div className="courseBtn">
-                            <Link to="/new-course" className="btn btn-primary">Add Course</Link>
+                            <div className="row">
+                                <div className="col">
+                                    <Link to="/new-course" className="btn btn-primary">Add Course</Link>
+                                </div>
+                                <div className="col">
+                                    <Link to="/new-school-department" className="schooldepartment btn btn-primary">Add Department / School</Link>
+                                </div>
+                            </div>
+                            
+                            
                         </div>
 
                         {

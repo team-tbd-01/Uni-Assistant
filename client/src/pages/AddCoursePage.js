@@ -88,6 +88,8 @@ class AddCoursePage extends React.Component {
     course_code: '',
     department: '',
     school: '',
+    courseID: '',
+    courseDescription: '',
     departmentData: [],
     schoolData: []
   }
@@ -97,6 +99,7 @@ class AddCoursePage extends React.Component {
     this.setCourseName = this.setCourseName.bind(this);
     this.setCourseCode = this.setCourseCode.bind(this);
     this.setDepartment = this.setDepartment.bind(this);
+    this.setDescription = this.setDescription.bind(this);
     this.setSchool = this.setSchool.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -123,7 +126,7 @@ class AddCoursePage extends React.Component {
     })
   }
 
-  addCourse() {
+  async addCourse() {
 
 
     let requestOptions = {
@@ -135,19 +138,35 @@ class AddCoursePage extends React.Component {
         departmentid: this.state.department,
         schoolid: this.state.school
       })
-      
     }
 
-    fetch('http://localhost:8000/api/courses', requestOptions)
+    let results = await fetch('http://localhost:8000/api/courses', requestOptions)
     .then(res => res.json())
-    .then(() => {
-      alert("Successful")
+    .then(results => {
+
+      return results.id
     })
     .catch(err => {
       alert(err);
     })
     .catch(err => {
       alert(err);
+    })
+
+    requestOptions = {
+      method: 'POST',
+      credentials: 'include',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        content: this.state.courseDescription,
+        courseid: results
+      })
+    }
+
+    fetch('http://localhost:8000/api/descriptions' , requestOptions)
+    .then(res => res.json())
+    .then(results => {
+      alert("Successful");
     })
   }
 
@@ -180,6 +199,12 @@ class AddCoursePage extends React.Component {
     })
   }
 
+  setDescription(event) {
+    this.setState({
+      courseDescription: event.target.value
+    })
+  }
+
   handleClick() {
     this.addCourse()
   }
@@ -199,6 +224,12 @@ class AddCoursePage extends React.Component {
                 <input className="form-control" onChange={this.setCourseCode} value={this.state.course_code} type="text"/>
                 <small className="form-text text-muted">Example: 101, 3220, etc.</small>
             </div>
+
+            <div className="form-group">
+              <label className="h3">Course Description</label>
+              <textarea onChange={this.setDescription} className="materialize-textarea"></textarea>
+            </div>
+
             <div className="form-group">
                 <label className="h3">Department:</label>
                 <select onChange={this.setDepartment} className="form-control" id="exampleFormControlSelect1">
@@ -221,6 +252,7 @@ class AddCoursePage extends React.Component {
                   }
                 </select>
             </div>
+            
             <a href="#" className="btn btn-primary" onClick={this.handleClick}>Submit</a>
           </form>
         </div>

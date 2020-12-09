@@ -79,7 +79,7 @@ class AQuestionPage extends React.Component {
                 <div >
                     {
                         this.state.commentData.map(comment => (
-                            <Comment comment={comment.content}/>
+                            <Comment userid={comment.userId} comment={comment.content}/>
                         ))
                     }
 

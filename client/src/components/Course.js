@@ -5,7 +5,8 @@ class Course extends React.Component {
     
     state = {
         schoolName: '',
-        departmentName: ''
+        departmentName: '',
+        description: ''
     }
 
     constructor(props) {
@@ -32,9 +33,20 @@ class Course extends React.Component {
         })
     }
 
+    fetchDescriptionByCourseID(id) {
+        fetch(`http://localhost:8000/api/descriptions/course/${id}`)
+        .then(res => res.json())
+        .then(results => {
+            this.setState({
+                description: results[0].content
+            })
+        })
+    }
+
     componentDidMount() {
         this.fetchSchoolByID(this.props.schoolid);
         this.fetchDepartmentByID(this.props.departmentid);
+        this.fetchDescriptionByCourseID(this.props.id);
     }
 
     render() {
@@ -48,7 +60,7 @@ class Course extends React.Component {
                         <h6>{this.state.departmentName}</h6>
                     </div>
                     <div className="card-footer small text-muted">
-                        <p>{this.props.description}</p>
+                        <p>{this.state.description}</p>
                         <Link to={`/a-course?id=${this.props.id}`} className="btn btn-primary mx-auto">View Course</Link>
                     </div>
                 </div>

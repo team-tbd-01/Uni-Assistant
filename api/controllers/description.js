@@ -22,13 +22,30 @@ router.get('/', (req,res) => {
     .then(description => res.json(description));
 });
 
+router.get('/course/:id', (req, res) => {
+  const { id } = req.params;
+
+  Description.findAll({
+    where: {
+      courseId: id
+    }
+  })
+  .then(description => {
+    if (!description) {
+      return res.sendStatus(404);
+    }
+
+    res.json(description);
+  })
+})
+
 // TODO: When creating a user, make sure passwords get hashed.
-router.post('/', (req, res) => {
+router.post('/', passport.isAuthenticated(), (req, res) => {
   let cont = req.body;
   
   Description.create({
     content: cont.content, 
-    userId: cont.userid,
+    userId: req.user.id,
     courseId: cont.courseid
    })
     .then(description => {

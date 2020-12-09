@@ -1,0 +1,8 @@
+.float-end {
+    float: right;
+    margin-top: 10px;
+}
+
+.float-end p {
+    font-weight: bold;
+}

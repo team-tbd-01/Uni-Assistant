@@ -75,7 +75,7 @@ class ACoursePage extends React.Component {
 
     render() {
         return(
-            <div className="text-center">
+            <div className="">
                 <div>
                     <h3 className="courseHeader jumbotron">{this.state.courseData.name}</h3>
                 </div>
@@ -83,11 +83,14 @@ class ACoursePage extends React.Component {
                 
                 <textarea onChange={this.setPostContent} id="textarea1" class="materialize-textarea"></textarea>
 
-                <button onClick={this.sendPostContent} className="btn-primary btn new-question mb-3">Ask Question</button>
+                <div className="text-center">
+                    <button onClick={this.sendPostContent} className="btn-primary btn new-question mb-3">Ask Question</button>
+                </div>
+                
 
                 {
                     this.state.postData.map(post => (
-                        <Question id={post.id} question={post.content}/>
+                        <Question id={post.id} userid={post.userId} question={post.content}/>
                     ))
                 }
             </div>

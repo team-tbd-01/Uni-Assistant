@@ -32,8 +32,8 @@ router.post('/', (req, res) => {
     departmentId: req.body.departmentid,
     schoolId: req.body.schoolid
    })
-    .then(user => {
-      res.status(201).json(user);
+    .then(course => {
+      res.status(201).json(course);
     })
     .catch(err => {
       res.status(400).json(err);
