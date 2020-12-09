@@ -217,7 +217,7 @@ class AddCoursePage extends React.Component {
             <div className="form-group">
                 <label className="h3">Course Name:</label>
                 <input className="form-control" onChange={this.setCourseName} value={this.state.course_name} type="text"/>
-                <small className="form-text text-muted">Example: CISC, CIS, etc.</small>
+                <small className="form-text text-muted">Example: Algorithm, Operating System, etc.</small>
             </div>
             <div className="form-group">
                 <label className="h3">Course Code:</label>

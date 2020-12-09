@@ -1,0 +1,19 @@
+img{
+    max-width:100%;
+    max-height:100%;
+}
+.font{
+    font-size: 25px;
+}
+.merg{
+    margin:0px auto;
+}
+.cent{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.back{
+    background-color: #ee6e73;
+}
