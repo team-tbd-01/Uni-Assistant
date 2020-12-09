@@ -47,10 +47,11 @@ class ACoursePage extends React.Component {
 
         let requestOptions = {
             method: 'POST',
+            credentials: 'include',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              content: "Hi",
-              courseId: 1
+              content: this.state.postContent,
+              courseId: id
             })
         }
 
@@ -80,7 +81,9 @@ class ACoursePage extends React.Component {
                 </div>
                 <h1 className="text-primary position-relative text-center">Questions</h1>
                 
-                <Link to="/new-question" className="btn-primary btn new-question mb-3">New Question</Link>
+                <textarea onChange={this.setPostContent} id="textarea1" class="materialize-textarea"></textarea>
+
+                <button onClick={this.sendPostContent} className="btn-primary btn new-question mb-3">Ask Question</button>
 
                 {
                     this.state.postData.map(post => (

@@ -35,8 +35,7 @@ router.post('/logout', (req, res) => {
   res.status(200).json({ message: 'Logout successful' });
 });
 
-router.get('/logged_in', (req, res, next) => {
-  auth = req.isAuthenticated()
+router.get('/logged_in', (req, res) => {
   if(req.isAuthenticated()){
   res.status(200).json({ message: "Logged in" })
 }

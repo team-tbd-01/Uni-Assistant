@@ -22,6 +22,7 @@ import auth from './services/auth';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'materialize-css';
+import Cookies from 'js-cookie';
 
 //This function is to allow the name of the college to change dynamically. Will need to create
 //another function that will check what school the user is from and will put the schools name.
@@ -60,7 +61,7 @@ class App extends React.Component {
   checkLoginStatus(){
     fetch("/api/auth/logged_in")
     .then((response) => {
-      console(response)
+      console.log(response)
       console.log(response.ok)
           const json = JSON.stringify(response)
           localStorage.setItem('user', json)
@@ -71,9 +72,11 @@ class App extends React.Component {
       localStorage.setItem('isAuthenticated', false)
     });
   }
+
   componentDidMount() {
     this.checkLoginStatus();
   }
+
   handleLogin(data) {
     this.setState({
       loggedInstatus: "LOGGED_IN",

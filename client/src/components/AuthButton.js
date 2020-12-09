@@ -5,7 +5,7 @@ const classes = "btn btn-primary";
 
 const AuthButton = withRouter(({ history }) => {
     let isAuthenticated = localStorage.getItem("isAuthenticated");
-   
+
     if(isAuthenticated === "false") {
     return (<div>
       <Link className={classes} to="/login">Login</Link> <Link className={classes} to="/signup">Sign up</Link>

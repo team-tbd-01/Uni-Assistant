@@ -53,6 +53,7 @@ class AboutUsPage extends React.Component {
           </form>
           );
     }
+}
 
 
 export default AboutUsPage;
