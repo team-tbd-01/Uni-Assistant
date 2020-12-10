@@ -20,7 +20,6 @@ import './css/login.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min.js';
 import 'materialize-css';
-import Cookies from 'js-cookie';
 import AddSchoolDepartment from './pages/AddSchoolDepartmentPage';
 
 //This function is to allow the name of the college to change dynamically. Will need to create
@@ -33,7 +32,7 @@ function ForumName(props){
 function Navigation(props) {
   return (
     <nav >
-      <a href="#!" class="brand-logo center">Uni-Assistant</a>
+      <Link className="brand-logo center"  exact to="/">Uni-assistant</Link>
       <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><Link  exact to="/courses">Courses</Link></li>
