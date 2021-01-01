@@ -38,7 +38,7 @@ class Course extends React.Component {
         .then(res => res.json())
         .then(results => {
             this.setState({
-                description: results[0].content
+                description: results.content
             })
         })
     }
